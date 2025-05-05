@@ -1,0 +1,13 @@
+C:\Users\facec.lab03\Downloads>cd api
+
+C:\Users\facec.lab03\Downloads\api>npm i express -s
+
+C:\Users\facec.lab03\Downloads\api>npm i cors -s
+
+C:\Users\facec.lab03\Downloads\api>npm i body-parser -s
+
+C:\Users\facec.lab03\Downloads\api>npm i jsonwebtoken -s
+
+C:\Users\facec.lab03\Downloads\api>npm i dotenv -s
+
+C:\Users\facec.lab03\Downloads\api>
