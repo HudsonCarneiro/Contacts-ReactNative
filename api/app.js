@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require ('express');
 const app = express ();
 const cors = require('cors');
@@ -21,10 +22,12 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.get('/', (req, res) => {
-    res.send('<h1>Olá</h1>');
+    res.send('Servidor Rodando na porta 3000');
 })
 
+const authRoutes = require('./routes/authRoutes');
 const contatoRoutes = require('./routes/contatosRoutes');
 app.use('/', contatoRoutes);
+app.use('/', authRoutes);
 
 module.exports = app;
