@@ -1,19 +1,21 @@
 require('dotenv').config();
-const express = require ('express');
-const app = express ();
+const express = require('express');
+const app = express();
 const cors = require('cors');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 
-const constOptions = {
+const consOptions = {
     origin: 'http://localhost:3000',
     method: ['GET', 'POST'],
-    allowedHeader: [
-        'Content-Type',
+    allowedHeaders: [
+        'Content-Type', 
         'Authorization'
     ]
 }
-app.use(cors(constOptions));
+
+app.use(cors(consOptions));
 app.use(express.json());
+
 app.use(bodyParser.json(
     {type: 'application/**json'})
 )
@@ -22,12 +24,13 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.get('/', (req, res) => {
-    res.send('Servidor Rodando na porta 3000');
+    res.send('<h1>Olá</h1>');
 })
 
-const authRoutes = require('./routes/authRoutes');
-const contatoRoutes = require('./routes/contatosRoutes');
+const authRoutes  = require('./routes/authRoutes');
+const contatoRoutes = require('./routes/contatoRoutes');
+
+app.use('/', authRoutes)
 app.use('/', contatoRoutes);
-app.use('/', authRoutes);
 
 module.exports = app;
